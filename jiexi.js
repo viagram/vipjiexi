@@ -4,7 +4,7 @@
 // @namespace      viagram@qq.com
 // @description    国内各大视频网站vip解析[腾讯,乐视,优酷,土豆,爱奇艺]
 // @version        0.2
-// @create         2017-03-20
+// @create         2017-03-1
 // @lastmodified   2017-03-21
 // @match          *://v.youku.com/v_show/*
 // @match          *://v.qq.com/x/*
