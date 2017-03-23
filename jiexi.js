@@ -3,9 +3,9 @@
 // @author         viagram
 // @namespace      viagram@qq.com
 // @description    国内各大视频网站vip解析[腾讯,乐视,优酷,土豆,爱奇艺]
-// @version        0.2
+// @version        0.3
 // @create         2017-03-1
-// @lastmodified   2017-03-21
+// @lastmodified   2017-03-23
 // @match          *://v.youku.com/v_show/*
 // @match          *://v.qq.com/x/*
 // @match          *://v.qq.com/x/page/*
@@ -19,7 +19,7 @@
 // @updateURL      https://raw.githubusercontent.com/viagram/vipjiexi/master/jiexi.js
 // @copyright      2017+, viagram
 // @run-at         document-end
-// @grant		   GM_xmlhttpRequest
+// @grant           GM_xmlhttpRequest
 // @icon           http://ip.zuzb.com/player.ico
 // @connect *
 // ==/UserScript==
@@ -28,18 +28,42 @@
     'use strict';
     var apiurl       =  'http://api.ywnas.com/?url=';
     var videouthtml  = document.createElement("videohtmloutid");
+    var thisDomain   = window.location.href.toLowerCase();
     var feature  = 'width=' + window.Width + ', height=' + window.Height + ', toolbar=no, location';
+    var chk = {
+        iqiyi: /iqiyi\.com/.test(thisDomain),
+        youku: /youku\.com/.test(thisDomain),
+        tudou: /tudou\.com/.test(thisDomain),
+        qq: /qq\.com/.test(thisDomain),
+        le: /le\.com/.test(thisDomain) || /letv\.com/.test(thisDomain)
+    };
     function name(){
-	    return 'Video_jiexi_Click_' + Math.random().toString(36).substr(2);
-    }
+        return 'Video_jiexi_Click_' + Math.random().toString(36).substr(2);
+    };
+    function topfix(){
+        if(chk.iqiyi){
+            return '    top:28%;';
+        }else if(chk.youku){
+            return '    top:28%;';
+        }else if(chk.tudou){
+            return '    top:25%;';
+        }else if(chk.le){
+            return '    top:22%;';
+        }else if(chk.qq){
+            return '    top:22%;';
+        }else{
+            return '    top:28%;';
+        }
+    };
     videouthtml.innerHTML= //
     `
 <style type="text/css">
-#floatPaneler .ctrolPaneler{
+.MovieClickPaneler{
     width:96px;
     height:50px;
+    right:20px;
     position:fixed;
-	text-align:center;
+    text-align:center;
     top:15%;
     overflow:hidden;
     z-index:10000;
@@ -48,10 +72,10 @@
 }
 .text-p{
     position:absolute;
-	top:15px;
+` + topfix() + `
     text-align:center;
-	font-size:18px;
-	padding:0 12px;
+    font-size:18px;
+    padding:0 12px;
     color:#e2b561;
     margin:0;
     font-family: Microsoft YaHei;
@@ -59,10 +83,8 @@
 </style>
 
 <a href="javascript:void(0);" onclick="open('`+ apiurl + window.location.href + `','` + name() + `','` + feature + `')" title="偉哥提示:\n      恭喜, 本视频可以免vip点播哦。\n此为本地测试版本，速度视带宽而定。">
-<div id="floatPaneler">
-    <div class="ctrolPaneler" style="right:20px;">
-        <p class="text-p">免费点播</p>
-    </div>
+<div class="MovieClickPaneler">
+    <p class="text-p">免费点播</p>
 </div>
 </a>
 `;
