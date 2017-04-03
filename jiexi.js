@@ -51,7 +51,7 @@
         }else if(chk.tudou){
             return '    top:25%;';
         }else if(chk.mgtv){
-            return '    top:25%;';
+            return '    top:24%;';
         }else if(chk.le){
             return '    top:22%;';
         }else if(chk.qq){
