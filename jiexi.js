@@ -36,6 +36,7 @@
         iqiyi: /iqiyi\.com/.test(thisDomain),
         youku: /youku\.com/.test(thisDomain),
         tudou: /tudou\.com/.test(thisDomain),
+        mgtv: /mgtv\.com/.test(thisDomain),
         qq: /qq\.com/.test(thisDomain),
         le: /le\.com/.test(thisDomain) || /letv\.com/.test(thisDomain)
     };
@@ -48,6 +49,8 @@
         }else if(chk.youku){
             return '    top:28%;';
         }else if(chk.tudou){
+            return '    top:25%;';
+        }else if(chk.mgtv){
             return '    top:25%;';
         }else if(chk.le){
             return '    top:22%;';
