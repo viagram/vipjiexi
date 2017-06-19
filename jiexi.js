@@ -21,7 +21,7 @@
 // @updateURL      https://raw.githubusercontent.com/viagram/vipjiexi/master/jiexi.js
 // @copyright      2017+, viagram
 // @run-at         document-end
-// @grant          GM_xmlhttpRequest
+// @grant           GM_xmlhttpRequest
 // @icon           http://ip.zuzb.com/player.ico
 // @connect *
 // ==/UserScript==
